@@ -2,8 +2,8 @@
 Microsoft Visual Studio Solution File, Format Version 12.00
 Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Solution Items", "Solution Items", "{BCBFCDD2-E957-4968-AEEA-80F3B5EDA9B8}"
 	ProjectSection(SolutionItems) = preProject
-		Dockerfile = Dockerfile
-		.dockerignore = .dockerignore
+		Directory.Build.props = Directory.Build.props
+		docker-compose.yml = docker-compose.yml
 	EndProjectSection
 EndProject
 Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "src", "src", "{0A8D9B6F-6617-45B6-B82E-AC97454C9F82}"
@@ -14,7 +14,7 @@ Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "EventFlow.API", "src\API\Ev
 EndProject
 Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Modules", "Modules", "{77D0E507-3375-4597-ACE1-F6B11F81CC25}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "EventFlow.Events", "src\Modules\EventFlow.Events\EventFlow.Events.csproj", "{E1F61FEA-166F-4011-8892-2113234F275F}"
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "EventFlow.Events.Presentation", "src\Modules\EventFlow.Events.Presentation\EventFlow.Events.Presentation.csproj", "{E1F61FEA-166F-4011-8892-2113234F275F}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution

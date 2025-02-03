@@ -1,4 +1,6 @@
-﻿namespace EventFlow.Events;
+﻿using EventFlow.Events.Presentation.Events.Enums;
+
+namespace EventFlow.Events.Presentation.Events.Entities;
 
 public sealed class Event
 {
@@ -13,4 +15,6 @@ public sealed class Event
     public DateTime StartsAtUtc { get; set; }
 
     public DateTime? EndsAtUtc { get; set; }
+    
+    public EventStatus Status { get; set; }
 }
