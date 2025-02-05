@@ -1,4 +1,4 @@
-﻿namespace EventFlow.Events.Presentation.DbContexts;
+﻿namespace EventFlow.Events.Infrastructure.DbContexts;
 
 internal static class Schemas
 {

@@ -1,4 +1,4 @@
-﻿using EventFlow.Events.Presentation.DbContexts;
+﻿using EventFlow.Events.Infrastructure.DbContexts;
 using Microsoft.EntityFrameworkCore;
 
 namespace EventFlow.API.Extensions;

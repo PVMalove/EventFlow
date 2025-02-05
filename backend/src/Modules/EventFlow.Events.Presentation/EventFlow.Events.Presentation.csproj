@@ -1,20 +1,11 @@
 ﻿<Project Sdk="Microsoft.NET.Sdk">
 
-    <PropertyGroup>
-        <TargetFramework>net8.0</TargetFramework>
-        <ImplicitUsings>enable</ImplicitUsings>
-        <Nullable>enable</Nullable>
-        <RootNamespace>EventFlow.Events.Presentation</RootNamespace>
-    </PropertyGroup>
-
     <ItemGroup>
         <FrameworkReference Include="Microsoft.AspNetCore.App" />
     </ItemGroup>
     
     <ItemGroup>
-      <PackageReference Include="EFCore.NamingConventions" Version="9.0.0" />
-      <PackageReference Include="Microsoft.EntityFrameworkCore" Version="9.0.1" />
-      <PackageReference Include="Npgsql.EntityFrameworkCore.PostgreSQL" Version="9.0.3" />
+      <ProjectReference Include="..\EventFlow.Events.Application\EventFlow.Events.Application.csproj" />
     </ItemGroup>
 
 </Project>

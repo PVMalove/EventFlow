@@ -17,13 +17,13 @@
     </ItemGroup>
 
     <ItemGroup>
-      <ProjectReference Include="..\..\Modules\EventFlow.Events.Presentation\EventFlow.Events.Presentation.csproj" />
-    </ItemGroup>
-
-    <ItemGroup>
       <Content Include="..\..\..\.dockerignore">
         <Link>.dockerignore</Link>
       </Content>
+    </ItemGroup>
+
+    <ItemGroup>
+      <ProjectReference Include="..\..\Modules\EventFlow.Events.Infrastructure\EventFlow.Events.Infrastructure.csproj" />
     </ItemGroup>
 
 </Project>

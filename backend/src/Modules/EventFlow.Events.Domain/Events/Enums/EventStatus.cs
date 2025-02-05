@@ -1,4 +1,4 @@
-﻿namespace EventFlow.Events.Presentation.Events.Enums;
+﻿namespace EventFlow.Events.Domain.Events.Enums;
 
 public enum EventStatus
 {

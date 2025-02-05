@@ -8,7 +8,6 @@ FROM mcr.microsoft.com/dotnet/sdk:8.0 AS build
 ARG BUILD_CONFIGURATION=Release
 WORKDIR /src
 COPY ["src/API/EventFlow.API/EventFlow.API.csproj", "src/API/EventFlow.API/"]
-COPY ["src/Modules/EventFlow.Events.Presentation/EventFlow.Events.Presentation.csproj", "src/Modules/EventFlow.Events.Presentation/"]
 RUN dotnet restore "src/API/EventFlow.API/EventFlow.API.csproj"
 COPY . .
 WORKDIR "/src/src/API/EventFlow.API"

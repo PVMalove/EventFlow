@@ -1,5 +1,5 @@
 using EventFlow.API.Extensions;
-using EventFlow.Events.Presentation;
+using EventFlow.Events.Infrastructure;
 
 var builder = WebApplication.CreateBuilder(args);
 

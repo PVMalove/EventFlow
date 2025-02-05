@@ -1,36 +1,29 @@
-﻿using EventFlow.Events.Presentation.DbContexts;
-using EventFlow.Events.Presentation.Events.Entities;
-using EventFlow.Events.Presentation.Events.Enums;
+﻿using EventFlow.Events.Application.Events.CreateEvent;
+using MediatR;
 using Microsoft.AspNetCore.Builder;
 using Microsoft.AspNetCore.Http;
 using Microsoft.AspNetCore.Routing;
 
 namespace EventFlow.Events.Presentation.Events;
 
-public static class CreateEvent
+internal static class CreateEvent
 {
     public static void MapEndpoint(IEndpointRouteBuilder app)
     {
-        app.MapPost("events", async (Request request, EventsDbContext context) =>
-        {
-            var @event = new Event
+        app.MapPost("events", async (Request request, ISender sender) =>
             {
-                Id = Guid.NewGuid(),
-                Title = request.Title,
-                Description = request.Description,
-                Location = request.Location,
-                StartsAtUtc = request.StartsAtUtc,
-                EndsAtUtc = request.EndsAtUtc,
-                Status = EventStatus.Draft
-            };
+                var command = new CreateEventCommand(
+                    request.Title,
+                    request.Description,
+                    request.Location,
+                    request.StartsAtUtc,
+                    request.EndsAtUtc);
 
-            context.Events.Add(@event);
+                Guid eventId = await sender.Send(command);
 
-            await context.SaveChangesAsync();
-
-            return Results.Ok(@event.Id);
-        })
-        .WithTags(Tags.Events);
+                return Results.Ok(eventId);
+            })
+            .WithTags(Tags.Events);
     }
 
     internal sealed class Request

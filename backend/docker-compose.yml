@@ -1,25 +1,37 @@
 ﻿version: '3.9'
 
+networks:
+  eventflow-net:
+
 services:
   EventFlow.api:
-    image: ${DOCKER_REGISTRY-}eventflowapi
-    container_name: EventFlow.Api
+    image: eventflow.api
+    container_name: eventflow.api
     build:
       context: .
       dockerfile: src/API/EventFlow.Api/Dockerfile
     ports:
       - 5000:8080
       - 5001:8081
-      
+    networks:
+      - eventflow-net
+    depends_on:
+      - EventFlow.database
+
   EventFlow.database:
-    container_name: 'EventFlow.Database'
-    image: 'postgres:latest'
+    container_name: eventflow.database
+    image: postgres:latest
     restart: always
     environment:
-        POSTGRES_DB: eventflow
-        POSTGRES_USER: postgres
-        POSTGRES_PASSWORD: postgres
+      POSTGRES_DB: eventflow
+      POSTGRES_USER: postgres
+      POSTGRES_PASSWORD: postgres
     volumes:
-      - ./.containers/db:/var/lib/postgresql/data
+      - eventflow-postgres:/var/lib/postgresql/data
     ports:
       - 5432:5432
+    networks:
+      - eventflow-net
+
+volumes:
+  eventflow-postgres:

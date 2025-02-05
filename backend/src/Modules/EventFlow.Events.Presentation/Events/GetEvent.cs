@@ -1,30 +1,21 @@
-﻿using EventFlow.Events.Presentation.DbContexts;
+﻿using EventFlow.Events.Application.Events.GetEvent;
+using MediatR;
 using Microsoft.AspNetCore.Builder;
 using Microsoft.AspNetCore.Http;
 using Microsoft.AspNetCore.Routing;
-using Microsoft.EntityFrameworkCore;
 
 namespace EventFlow.Events.Presentation.Events;
 
-public static class GetEvent
+internal static class GetEvent
 {
     public static void MapEndpoint(IEndpointRouteBuilder app)
     {
-        app.MapGet("events/{id}", async (Guid id, EventsDbContext context) =>
-        {
-            EventResponse? @event = await context.Events
-                .Where(e => e.Id == id)
-                .Select(e => new EventResponse(
-                    e.Id,
-                    e.Title,
-                    e.Description,
-                    e.Location,
-                    e.StartsAtUtc,
-                    e.EndsAtUtc))
-                .SingleOrDefaultAsync();
+        app.MapGet("events/{id}", async (Guid id, ISender sender) =>
+            {
+                EventResponse @event = await sender.Send(new GetEventQuery(id));
 
-            return @event is null ? Results.NotFound() : Results.Ok(@event);
-        })
-        .WithTags(Tags.Events);
+                return @event is null ? Results.NotFound() : Results.Ok(@event);
+            })
+            .WithTags(Tags.Events);
     }
 }
