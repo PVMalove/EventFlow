@@ -1,14 +1,6 @@
 ﻿using FluentValidation;
-using MediatR;
 
 namespace EventFlow.Events.Application.Events.CreateEvent;
-
-public sealed record CreateEventCommand(
-    string Title,
-    string Description,
-    string Location,
-    DateTime StartsAtUtc,
-    DateTime? EndsAtUtc) : IRequest<Guid>;
 
 internal sealed class CreateEventCommandValidator : AbstractValidator<CreateEventCommand>
 {

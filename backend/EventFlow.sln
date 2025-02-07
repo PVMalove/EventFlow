@@ -14,15 +14,15 @@ Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "EventFlow.API", "src\API\Ev
 EndProject
 Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Modules", "Modules", "{77D0E507-3375-4597-ACE1-F6B11F81CC25}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "EventFlow.Events.Presentation", "src\Modules\EventFlow.Events.Presentation\EventFlow.Events.Presentation.csproj", "{E1F61FEA-166F-4011-8892-2113234F275F}"
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "EventFlow.Events.Presentation", "src\Modules\Events\EventFlow.Events.Presentation\EventFlow.Events.Presentation.csproj", "{E1F61FEA-166F-4011-8892-2113234F275F}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "EventFlow.Events.Application", "src\Modules\EventFlow.Events.Application\EventFlow.Events.Application.csproj", "{56E71C37-49E1-4114-9BCB-543219045E34}"
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "EventFlow.Events.Application", "src\Modules\Events\EventFlow.Events.Application\EventFlow.Events.Application.csproj", "{56E71C37-49E1-4114-9BCB-543219045E34}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "EventFlow.Events.Domain", "src\Modules\EventFlow.Events.Domain\EventFlow.Events.Domain.csproj", "{C4EFA2CF-E559-4F8C-BA28-81144B66EEBA}"
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "EventFlow.Events.Domain", "src\Modules\Events\EventFlow.Events.Domain\EventFlow.Events.Domain.csproj", "{C4EFA2CF-E559-4F8C-BA28-81144B66EEBA}"
 EndProject
 Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Events", "Events", "{0CC98C75-775F-4306-A3F8-4E56CE4ED562}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "EventFlow.Events.Infrastructure", "src\Modules\EventFlow.Events.Infrastructure\EventFlow.Events.Infrastructure.csproj", "{6BEAB50B-AA44-4FD1-83C6-6D2A80CE2D4C}"
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "EventFlow.Events.Infrastructure", "src\Modules\Events\EventFlow.Events.Infrastructure\EventFlow.Events.Infrastructure.csproj", "{6BEAB50B-AA44-4FD1-83C6-6D2A80CE2D4C}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution

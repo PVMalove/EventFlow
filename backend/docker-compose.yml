@@ -7,6 +7,8 @@ services:
   EventFlow.api:
     image: eventflow.api
     container_name: eventflow.api
+    environment:
+      - ASPNETCORE_ENVIRONMENT=Development
     build:
       context: .
       dockerfile: src/API/EventFlow.Api/Dockerfile
