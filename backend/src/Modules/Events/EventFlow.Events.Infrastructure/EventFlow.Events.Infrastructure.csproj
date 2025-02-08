@@ -10,5 +10,9 @@
         <ProjectReference Include="..\EventFlow.Events.Application\EventFlow.Events.Application.csproj" />
         <ProjectReference Include="..\EventFlow.Events.Presentation\EventFlow.Events.Presentation.csproj" />
     </ItemGroup>
+
+    <ItemGroup>
+      <Folder Include="Migrations\" />
+    </ItemGroup>
     
 </Project>

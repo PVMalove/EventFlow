@@ -4,7 +4,10 @@ using EventFlow.Events.Infrastructure;
 var builder = WebApplication.CreateBuilder(args);
 
 builder.Services.AddEndpointsApiExplorer();
-builder.Services.AddSwaggerGen();
+builder.Services.AddSwaggerGen(options =>
+{
+    options.CustomSchemaIds(t => t.FullName?.Replace("+", "."));
+});
 
 builder.Services.AddEventsModule(builder.Configuration);
 
@@ -19,5 +22,5 @@ if (app.Environment.IsDevelopment())
 }
 
 EventsModule.MapEndpoints(app);
-app.MapGet("/", () => "Hello World2!");
+
 app.Run();
