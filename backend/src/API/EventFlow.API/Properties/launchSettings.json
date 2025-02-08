@@ -39,6 +39,13 @@
       },
       "publishAllPorts": true,
       "useSSL": true
+    },
+    "Docker Compose": {
+      "commandName": "DockerCompose",
+      "commandVersion": "1.0",
+      "serviceActions": {
+        "eventflow.api": "StartDebugging"
+      }
     }
   },
   "$schema": "http://json.schemastore.org/launchsettings.json",

@@ -5,7 +5,7 @@ EXPOSE 8080
 EXPOSE 8081
 
 FROM mcr.microsoft.com/dotnet/sdk:8.0 AS build
-ARG BUILD_CONFIGURATION=Release
+ARG BUILD_CONFIGURATION=Debug
 WORKDIR /src
 COPY ["src/API/EventFlow.API/EventFlow.API.csproj", "src/API/EventFlow.API/"]
 RUN dotnet restore "src/API/EventFlow.API/EventFlow.API.csproj"

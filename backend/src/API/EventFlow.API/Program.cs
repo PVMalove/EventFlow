@@ -19,5 +19,5 @@ if (app.Environment.IsDevelopment())
 }
 
 EventsModule.MapEndpoints(app);
-
+app.MapGet("/", () => "Hello World2!");
 app.Run();
