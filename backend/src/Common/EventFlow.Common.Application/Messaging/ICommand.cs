@@ -1,7 +1,7 @@
-﻿using EventFlow.Events.Domain.Abstractions;
+﻿using EventFlow.Common.Domain.Abstractions;
 using MediatR;
 
-namespace EventFlow.Events.Application.Abstractions.Messaging;
+namespace EventFlow.Common.Application.Messaging;
 
 public interface ICommand : IRequest<Result>, IBaseCommand;
 

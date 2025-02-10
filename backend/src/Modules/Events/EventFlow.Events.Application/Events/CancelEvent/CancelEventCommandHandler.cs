@@ -1,7 +1,7 @@
-﻿using EventFlow.Events.Application.Abstractions.Clock;
+﻿using EventFlow.Common.Application.Clock;
+using EventFlow.Common.Application.Messaging;
+using EventFlow.Common.Domain.Abstractions;
 using EventFlow.Events.Application.Abstractions.Data;
-using EventFlow.Events.Application.Abstractions.Messaging;
-using EventFlow.Events.Domain.Abstractions;
 using EventFlow.Events.Domain.Events;
 using EventFlow.Events.Domain.Events.Entities;
 

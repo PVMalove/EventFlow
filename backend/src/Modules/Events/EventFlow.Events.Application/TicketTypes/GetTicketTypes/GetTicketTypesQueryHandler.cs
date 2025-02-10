@@ -1,9 +1,9 @@
 ﻿using System.Data.Common;
 using Dapper;
-using EventFlow.Events.Application.Abstractions.Data;
-using EventFlow.Events.Application.Abstractions.Messaging;
+using EventFlow.Common.Application.Data;
+using EventFlow.Common.Application.Messaging;
+using EventFlow.Common.Domain.Abstractions;
 using EventFlow.Events.Application.TicketTypes.GetTicketType;
-using EventFlow.Events.Domain.Abstractions;
 
 namespace EventFlow.Events.Application.TicketTypes.GetTicketTypes;
 

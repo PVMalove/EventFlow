@@ -1,4 +1,4 @@
-﻿namespace EventFlow.Events.Domain.Abstractions;
+﻿namespace EventFlow.Common.Domain.Abstractions;
 
 public interface IDomainEvent
 {

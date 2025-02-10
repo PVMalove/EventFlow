@@ -23,6 +23,7 @@
     </ItemGroup>
 
     <ItemGroup>
+      <ProjectReference Include="..\..\Common\EventFlow.Common.Application\EventFlow.Common.Application.csproj" />
       <ProjectReference Include="..\..\Modules\Events\EventFlow.Events.Infrastructure\EventFlow.Events.Infrastructure.csproj" />
     </ItemGroup>
 

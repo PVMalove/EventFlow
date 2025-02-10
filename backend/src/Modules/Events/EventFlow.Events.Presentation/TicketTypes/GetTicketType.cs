@@ -1,5 +1,5 @@
 ﻿using EventFlow.Events.Application.TicketTypes.GetTicketType;
-using EventFlow.Events.Domain.Abstractions;
+using EventFlow.Common.Domain.Abstractions;
 using EventFlow.Events.Presentation.ApiResults;
 using MediatR;
 using Microsoft.AspNetCore.Builder;

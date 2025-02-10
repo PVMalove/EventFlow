@@ -1,4 +1,4 @@
-﻿namespace EventFlow.Events.Domain.Abstractions.Enums;
+﻿namespace EventFlow.Common.Domain.Abstractions.Enums;
 
 public enum ErrorType
 {

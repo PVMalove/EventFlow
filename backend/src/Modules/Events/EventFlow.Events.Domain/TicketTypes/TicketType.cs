@@ -1,13 +1,11 @@
-﻿using EventFlow.Events.Domain.Abstractions;
+﻿using EventFlow.Common.Domain.Abstractions;
 using EventFlow.Events.Domain.Events.Entities;
 
 namespace EventFlow.Events.Domain.TicketTypes;
 
 public sealed class TicketType : Entity
 {
-    private TicketType()
-    {
-    }
+    private TicketType() { }
 
     public Guid Id { get; private set; }
 

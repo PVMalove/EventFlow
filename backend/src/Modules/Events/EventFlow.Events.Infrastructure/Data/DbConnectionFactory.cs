@@ -1,5 +1,5 @@
 ﻿using System.Data.Common;
-using EventFlow.Events.Application.Abstractions.Data;
+using EventFlow.Common.Application.Data;
 using Npgsql;
 
 namespace EventFlow.Events.Infrastructure.Data;

@@ -1,4 +1,5 @@
-﻿using EventFlow.Events.Application.Abstractions.Clock;
+﻿using EventFlow.Common.Application.Clock;
+using EventFlow.Common.Application.Data;
 using EventFlow.Events.Application.Abstractions.Data;
 using EventFlow.Events.Domain.Categories;
 using EventFlow.Events.Domain.Events;
@@ -12,7 +13,6 @@ using EventFlow.Events.Infrastructure.TicketTypes;
 using EventFlow.Events.Presentation.Categories;
 using EventFlow.Events.Presentation.Events;
 using EventFlow.Events.Presentation.TicketTypes;
-using FluentValidation;
 using Microsoft.AspNetCore.Routing;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.EntityFrameworkCore.Migrations;
@@ -36,12 +36,6 @@ public static class EventsModule
         this IServiceCollection services,
         IConfiguration configuration)
     {
-        services.AddMediatR(config =>
-        {
-            config.RegisterServicesFromAssembly(Application.AssemblyReference.Assembly);
-        });
-
-        services.AddValidatorsFromAssembly(Application.AssemblyReference.Assembly, includeInternalTypes: true);
 
         services.AddInfrastructure(configuration);
 

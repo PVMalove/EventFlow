@@ -1,4 +1,5 @@
-﻿using EventFlow.Events.Application.Abstractions.Messaging;
+﻿using EventFlow.Common.Application.Messaging;
+
 
 namespace EventFlow.Events.Application.Events.PublishEvent;
 

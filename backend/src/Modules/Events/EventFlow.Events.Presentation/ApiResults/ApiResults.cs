@@ -1,5 +1,5 @@
-﻿using EventFlow.Events.Domain.Abstractions;
-using EventFlow.Events.Domain.Abstractions.Enums;
+﻿using EventFlow.Common.Domain.Abstractions;
+using EventFlow.Common.Domain.Abstractions.Enums;
 using Microsoft.AspNetCore.Http;
 
 namespace EventFlow.Events.Presentation.ApiResults;

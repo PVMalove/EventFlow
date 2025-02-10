@@ -1,4 +1,4 @@
-﻿using EventFlow.Events.Domain.Abstractions;
+﻿using EventFlow.Common.Domain.Abstractions;
 
 namespace EventFlow.Events.Presentation.ApiResults;
 

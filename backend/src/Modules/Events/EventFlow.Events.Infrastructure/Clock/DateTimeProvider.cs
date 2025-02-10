@@ -1,4 +1,4 @@
-﻿using EventFlow.Events.Application.Abstractions.Clock;
+﻿using EventFlow.Common.Application.Clock;
 
 namespace EventFlow.Events.Infrastructure.Clock;
 

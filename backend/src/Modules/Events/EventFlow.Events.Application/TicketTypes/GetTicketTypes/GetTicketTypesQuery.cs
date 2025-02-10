@@ -1,4 +1,4 @@
-﻿using EventFlow.Events.Application.Abstractions.Messaging;
+﻿using EventFlow.Common.Application.Messaging;
 using EventFlow.Events.Application.TicketTypes.GetTicketType;
 
 namespace EventFlow.Events.Application.TicketTypes.GetTicketTypes;

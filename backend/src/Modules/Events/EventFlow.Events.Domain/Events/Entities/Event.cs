@@ -1,4 +1,4 @@
-﻿using EventFlow.Events.Domain.Abstractions;
+﻿using EventFlow.Common.Domain.Abstractions;
 using EventFlow.Events.Domain.Categories;
 using EventFlow.Events.Domain.Events.Enums;
 

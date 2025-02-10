@@ -1,9 +1,11 @@
-﻿using System.Data.Common;
+﻿
+
+using System.Data.Common;
 using Dapper;
-using EventFlow.Events.Application.Abstractions.Data;
-using EventFlow.Events.Application.Abstractions.Messaging;
+using EventFlow.Common.Application.Data;
+using EventFlow.Common.Application.Messaging;
+using EventFlow.Common.Domain.Abstractions;
 using EventFlow.Events.Application.Events.GetEvents;
-using EventFlow.Events.Domain.Abstractions;
 using EventFlow.Events.Domain.Events.Enums;
 
 namespace EventFlow.Events.Application.Events.SearchEvents;

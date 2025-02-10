@@ -1,4 +1,5 @@
 using EventFlow.API.Extensions;
+using EventFlow.Common.Application;
 using EventFlow.Events.Infrastructure;
 
 var builder = WebApplication.CreateBuilder(args);
@@ -8,6 +9,8 @@ builder.Services.AddSwaggerGen(options =>
 {
     options.CustomSchemaIds(t => t.FullName?.Replace("+", "."));
 });
+
+builder .Services.AddApplication([typeof(EventsModule).Assembly]);
 
 builder.Services.AddEventsModule(builder.Configuration);
 

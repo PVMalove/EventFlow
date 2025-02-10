@@ -1,6 +1,6 @@
-﻿using EventFlow.Events.Domain.Abstractions.Enums;
+﻿using EventFlow.Common.Domain.Abstractions.Enums;
 
-namespace EventFlow.Events.Domain.Abstractions;
+namespace EventFlow.Common.Domain.Abstractions;
 
 public record Error
 {

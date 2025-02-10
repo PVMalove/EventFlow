@@ -1,5 +1,5 @@
-﻿using EventFlow.Events.Application.Events.PublishEvent;
-using EventFlow.Events.Domain.Abstractions;
+﻿using EventFlow.Common.Domain.Abstractions;
+using EventFlow.Events.Application.Events.PublishEvent;
 using EventFlow.Events.Presentation.ApiResults;
 using MediatR;
 using Microsoft.AspNetCore.Builder;
