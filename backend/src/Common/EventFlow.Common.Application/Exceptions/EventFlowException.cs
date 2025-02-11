@@ -2,16 +2,10 @@
 
 namespace EventFlow.Common.Application.Exceptions;
 
-public sealed class EventFlowException : Exception
+public sealed class EventFlowException(string requestName, Error? error = null, Exception? innerException = null)
+    : Exception("Application exception", innerException)
 {
-    public EventFlowException(string requestName, Error? error = default, Exception? innerException = default)
-        : base("Application exception", innerException)
-    {
-        RequestName = requestName;
-        Error = error;
-    }
+    public string RequestName { get; } = requestName;
 
-    public string RequestName { get; }
-
-    public Error? Error { get; }
+    public Error? Error { get; } = error;
 }

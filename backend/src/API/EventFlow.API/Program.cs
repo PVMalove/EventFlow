@@ -1,4 +1,5 @@
 using EventFlow.API.Extensions;
+using EventFlow.API.Middleware;
 using EventFlow.Common.Application;
 using EventFlow.Common.Infrastructure;
 using EventFlow.Events.Application;
@@ -10,6 +11,9 @@ var services = builder.Services;
 
 builder.Host.UseSerilog((context, configuration) => 
     configuration.ReadFrom.Configuration(context.Configuration));
+
+services.AddExceptionHandler<GlobalExceptionHandler>();
+services.AddProblemDetails();
 
 services.AddEndpointsApiExplorer();
 services.AddSwaggerGen(options =>
@@ -36,5 +40,6 @@ if (app.Environment.IsDevelopment())
 EventsModule.MapEndpoints(app);
 
 app.UseSerilogRequestLogging();
+app.UseExceptionHandler();
 
 app.Run();
