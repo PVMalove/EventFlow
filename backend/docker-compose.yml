@@ -35,5 +35,16 @@ services:
     networks:
       - eventflow-net
 
+  EventFlow.seq:
+    image: datalust/seq:latest
+    container_name: EventFlow.Seq
+    environment:
+      - ACCEPT_EULA=Y
+    ports:
+      - 5341:5341
+      - 8081:80
+    networks:
+      - eventflow-net
+      
 volumes:
   eventflow-postgres:

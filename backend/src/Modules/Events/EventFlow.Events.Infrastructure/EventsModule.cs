@@ -5,8 +5,6 @@ using EventFlow.Events.Domain.Categories;
 using EventFlow.Events.Domain.Events;
 using EventFlow.Events.Domain.TicketTypes;
 using EventFlow.Events.Infrastructure.Categories;
-using EventFlow.Events.Infrastructure.Clock;
-using EventFlow.Events.Infrastructure.Data;
 using EventFlow.Events.Infrastructure.DbContexts;
 using EventFlow.Events.Infrastructure.Events;
 using EventFlow.Events.Infrastructure.TicketTypes;
@@ -36,22 +34,13 @@ public static class EventsModule
         this IServiceCollection services,
         IConfiguration configuration)
     {
-
         services.AddInfrastructure(configuration);
-
         return services;
     }
 
     private static void AddInfrastructure(this IServiceCollection services, IConfiguration configuration)
     {
         string databaseConnectionString = configuration.GetConnectionString("Database")!;
-
-        NpgsqlDataSource npgsqlDataSource = new NpgsqlDataSourceBuilder(databaseConnectionString).Build();
-        services.TryAddSingleton(npgsqlDataSource);
-
-        services.AddScoped<IDbConnectionFactory, DbConnectionFactory>();
-
-        services.TryAddSingleton<IDateTimeProvider, DateTimeProvider>();
 
         services.AddDbContext<EventsDbContext>(options =>
             options
