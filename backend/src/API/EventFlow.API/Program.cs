@@ -22,7 +22,10 @@ services.AddSwaggerGen(options =>
 });
 
 services.AddApplication([AssemblyReference.Assembly]);
-services.AddInfrastructure(builder.Configuration.GetConnectionString("Database")!);
+services.AddInfrastructure(
+    builder.Configuration.GetConnectionString("Database")!,
+    builder.Configuration.GetConnectionString("Cache")!);
+
 builder.Configuration.AddModuleConfiguration(["events"]);
 
 services.AddEventsModule(builder.Configuration);
