@@ -1,6 +1,7 @@
 ﻿using EventFlow.Events.Application.Categories.GetCategory;
 using EventFlow.Common.Domain.Abstractions;
-using EventFlow.Events.Presentation.ApiResults;
+using EventFlow.Common.Presentation.ApiResults;
+using EventFlow.Common.Presentation.Endpoints;
 using MediatR;
 using Microsoft.AspNetCore.Builder;
 using Microsoft.AspNetCore.Http;
@@ -8,16 +9,16 @@ using Microsoft.AspNetCore.Routing;
 
 namespace EventFlow.Events.Presentation.Categories;
 
-internal static class GetCategory
+internal class GetCategory : IEndpoint
 {
-    public static void MapEndpoint(IEndpointRouteBuilder app)
+    public void MapEndpoint(IEndpointRouteBuilder app)
     {
         app.MapGet("categories/{id}", async (Guid id, ISender sender) =>
-        {
-            Result<CategoryResponse> result = await sender.Send(new GetCategoryQuery(id));
+            {
+                Result<CategoryResponse> result = await sender.Send(new GetCategoryQuery(id));
 
-            return result.Match(Results.Ok, ApiResults.ApiResults.Problem);
-        })
-        .WithTags(Tags.Categories);
+                return result.Match(Results.Ok, ApiResults.Problem);
+            })
+            .WithTags(Tags.Categories);
     }
 }

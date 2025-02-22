@@ -1,6 +1,8 @@
 ﻿using EventFlow.Events.Application.Categories.UpdateCategory;
 using EventFlow.Common.Domain.Abstractions;
-using EventFlow.Events.Presentation.ApiResults;
+using EventFlow.Common.Presentation.ApiResults;
+using EventFlow.Common.Presentation.Endpoints;
+using EventFlow.Events.Presentation.Categories.Request;
 using MediatR;
 using Microsoft.AspNetCore.Builder;
 using Microsoft.AspNetCore.Http;
@@ -8,21 +10,16 @@ using Microsoft.AspNetCore.Routing;
 
 namespace EventFlow.Events.Presentation.Categories;
 
-internal static class UpdateCategory
+internal class UpdateCategory : IEndpoint
 {
-    public static void MapEndpoint(IEndpointRouteBuilder app)
+    public void MapEndpoint(IEndpointRouteBuilder app)
     {
-        app.MapPut("categories/{id}", async (Guid id, Request request, ISender sender) =>
-        {
-            Result result = await sender.Send(new UpdateCategoryCommand(id, request.Name));
+        app.MapPut("categories/{id}", async (Guid id, UpdateCategoryRequest request, ISender sender) =>
+            {
+                Result result = await sender.Send(new UpdateCategoryCommand(id, request.Name));
 
-            return result.Match(() => Results.Ok(), ApiResults.ApiResults.Problem);
-        })
-        .WithTags(Tags.Categories);
-    }
-
-    internal sealed class Request
-    {
-        public string Name { get; init; }
+                return result.Match(() => Results.Ok(), ApiResults.Problem);
+            })
+            .WithTags(Tags.Categories);
     }
 }

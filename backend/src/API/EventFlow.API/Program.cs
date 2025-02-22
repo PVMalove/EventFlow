@@ -2,6 +2,7 @@ using EventFlow.API.Extensions;
 using EventFlow.API.Middleware;
 using EventFlow.Common.Application;
 using EventFlow.Common.Infrastructure;
+using EventFlow.Common.Presentation.Endpoints;
 using EventFlow.Events.Application;
 using EventFlow.Events.Infrastructure;
 using HealthChecks.UI.Client;
@@ -48,7 +49,7 @@ if (app.Environment.IsDevelopment())
     app.ApplyMigrations();
 }
 
-EventsModule.MapEndpoints(app);
+app.MapEndpoints();
 
 app.MapHealthChecks("health", new HealthCheckOptions
 {

@@ -1,6 +1,8 @@
 ﻿using EventFlow.Events.Application.TicketTypes.CreateTicketType;
 using EventFlow.Common.Domain.Abstractions;
-using EventFlow.Events.Presentation.ApiResults;
+using EventFlow.Common.Presentation.ApiResults;
+using EventFlow.Common.Presentation.Endpoints;
+using EventFlow.Events.Presentation.TicketTypes.Request;
 using MediatR;
 using Microsoft.AspNetCore.Builder;
 using Microsoft.AspNetCore.Http;
@@ -8,34 +10,21 @@ using Microsoft.AspNetCore.Routing;
 
 namespace EventFlow.Events.Presentation.TicketTypes;
 
-internal static class CreateTicketType
+internal class CreateTicketType : IEndpoint
 {
-    public static void MapEndpoint(IEndpointRouteBuilder app)
+    public void MapEndpoint(IEndpointRouteBuilder app)
     {
-        app.MapPost("ticket-types", async (Request request, ISender sender) =>
-        {
-            Result<Guid> result = await sender.Send(new CreateTicketTypeCommand(
-                request.EventId,
-                request.Name,
-                request.Price,
-                request.Currency,
-                request.Quantity));
+        app.MapPost("ticket-types", async (CreateTicketTypeRequest request, ISender sender) =>
+            {
+                Result<Guid> result = await sender.Send(new CreateTicketTypeCommand(
+                    request.EventId,
+                    request.Name,
+                    request.Price,
+                    request.Currency,
+                    request.Quantity));
 
-            return result.Match(Results.Ok, ApiResults.ApiResults.Problem);
-        })
-        .WithTags(Tags.TicketTypes);
-    }
-
-    internal sealed class Request
-    {
-        public Guid EventId { get; init; }
-
-        public string Name { get; init; }
-
-        public decimal Price { get; init; }
-
-        public string Currency { get; init; }
-
-        public decimal Quantity { get; init; }
+                return result.Match(Results.Ok, ApiResults.Problem);
+            })
+            .WithTags(Tags.TicketTypes);
     }
 }

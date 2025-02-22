@@ -1,6 +1,6 @@
 ﻿using EventFlow.Common.Domain.Abstractions;
 
-namespace EventFlow.Events.Presentation.ApiResults;
+namespace EventFlow.Common.Presentation.ApiResults;
 
 public static class ResultExtensions
 {

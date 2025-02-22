@@ -2,7 +2,7 @@
 using EventFlow.Common.Domain.Abstractions.Enums;
 using Microsoft.AspNetCore.Http;
 
-namespace EventFlow.Events.Presentation.ApiResults;
+namespace EventFlow.Common.Presentation.ApiResults;
 
 public static class ApiResults
 {

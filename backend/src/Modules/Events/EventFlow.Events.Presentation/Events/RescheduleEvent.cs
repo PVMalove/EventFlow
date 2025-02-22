@@ -1,6 +1,8 @@
 ﻿using EventFlow.Events.Application.Events.RescheduleEvent;
 using EventFlow.Common.Domain.Abstractions;
-using EventFlow.Events.Presentation.ApiResults;
+using EventFlow.Common.Presentation.ApiResults;
+using EventFlow.Common.Presentation.Endpoints;
+using EventFlow.Events.Presentation.Events.Request;
 using MediatR;
 using Microsoft.AspNetCore.Builder;
 using Microsoft.AspNetCore.Http;
@@ -8,24 +10,17 @@ using Microsoft.AspNetCore.Routing;
 
 namespace EventFlow.Events.Presentation.Events;
 
-internal static class RescheduleEvent
+internal class RescheduleEvent : IEndpoint
 {
-    public static void MapEndpoint(IEndpointRouteBuilder app)
+    public void MapEndpoint(IEndpointRouteBuilder app)
     {
-        app.MapPut("events/{id}/reschedule", async (Guid id, Request request, ISender sender) =>
-        {
-            Result result = await sender.Send(
-                new RescheduleEventCommand(id, request.StartsAtUtc, request.EndsAtUtc));
+        app.MapPut("events/{id}/reschedule", async (Guid id, RescheduleEventRequest request, ISender sender) =>
+            {
+                Result result = await sender.Send(
+                    new RescheduleEventCommand(id, request.StartsAtUtc, request.EndsAtUtc));
 
-            return result.Match(Results.NoContent, ApiResults.ApiResults.Problem);
-        })
-        .WithTags(Tags.Events);
-    }
-
-    internal sealed class Request
-    {
-        public DateTime StartsAtUtc { get; init; }
-
-        public DateTime? EndsAtUtc { get; init; }
+                return result.Match(Results.NoContent, ApiResults.Problem);
+            })
+            .WithTags(Tags.Events);
     }
 }
