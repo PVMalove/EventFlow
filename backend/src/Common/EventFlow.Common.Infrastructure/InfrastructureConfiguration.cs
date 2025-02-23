@@ -24,10 +24,17 @@ public static class InfrastructureConfiguration
         services.TryAddSingleton<PublishDomainEventsInterceptor>();
         services.TryAddSingleton<IDateTimeProvider, DateTimeProvider>();
 
-        IConnectionMultiplexer redis = ConnectionMultiplexer.Connect(radioConnectionString);
-        services.TryAddSingleton(redis);
-        services.AddStackExchangeRedisCache(options =>
-            options.ConnectionMultiplexerFactory = () => Task.FromResult(redis));
+        try
+        {
+            IConnectionMultiplexer redis = ConnectionMultiplexer.Connect(radioConnectionString);
+            services.TryAddSingleton(redis);
+            services.AddStackExchangeRedisCache(options =>
+                options.ConnectionMultiplexerFactory = () => Task.FromResult(redis));
+        }
+        catch
+        {
+            services.AddDistributedMemoryCache();
+        }
         
         services.TryAddSingleton<ICacheService, CacheService>();
         

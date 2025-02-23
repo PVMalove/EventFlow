@@ -5,6 +5,7 @@ using EventFlow.Common.Infrastructure;
 using EventFlow.Common.Presentation.Endpoints;
 using EventFlow.Events.Application;
 using EventFlow.Events.Infrastructure;
+using EventFlow.Users.Infrastructure;
 using HealthChecks.UI.Client;
 using Microsoft.AspNetCore.Diagnostics.HealthChecks;
 using Serilog;
@@ -24,21 +25,23 @@ services.AddSwaggerGen(options =>
     options.CustomSchemaIds(t => t.FullName?.Replace("+", "."));
 });
 
-services.AddApplication([AssemblyReference.Assembly]);
-
+services.AddApplication([
+    EventFlow.Events.Application.AssemblyReference.Assembly,
+    EventFlow.Users.Application.AssemblyReference.Assembly]);
 
 var dbConnectionString = builder.Configuration.GetConnectionString("Database")!;
 var cacheConnectionString = builder.Configuration.GetConnectionString("Cache")!;
 
 services.AddInfrastructure(dbConnectionString, cacheConnectionString);
 
-builder.Configuration.AddModuleConfiguration(["events"]);
+builder.Configuration.AddModuleConfiguration(["events", "users"]);
 
 builder.Services.AddHealthChecks()
     .AddNpgSql(dbConnectionString)
     .AddRedis(cacheConnectionString);
 
 services.AddEventsModule(builder.Configuration);
+services.AddUsersModule(builder.Configuration);
 
 var app = builder.Build();
 
