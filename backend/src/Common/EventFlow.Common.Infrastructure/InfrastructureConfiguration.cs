@@ -4,6 +4,7 @@ using EventFlow.Common.Application.Data;
 using EventFlow.Common.Infrastructure.Caching;
 using EventFlow.Common.Infrastructure.Clock;
 using EventFlow.Common.Infrastructure.Data;
+using EventFlow.Common.Infrastructure.Interceptors;
 using Microsoft.Extensions.DependencyInjection;
 using Microsoft.Extensions.DependencyInjection.Extensions;
 using Npgsql;
@@ -20,6 +21,7 @@ public static class InfrastructureConfiguration
         services.TryAddSingleton(npgsqlDataSource);
 
         services.AddScoped<IDbConnectionFactory, DbConnectionFactory>();
+        services.TryAddSingleton<PublishDomainEventsInterceptor>();
         services.TryAddSingleton<IDateTimeProvider, DateTimeProvider>();
 
         IConnectionMultiplexer redis = ConnectionMultiplexer.Connect(radioConnectionString);

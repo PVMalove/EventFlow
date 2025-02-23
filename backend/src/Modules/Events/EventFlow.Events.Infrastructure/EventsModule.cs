@@ -1,5 +1,5 @@
-﻿using EventFlow.Common.Presentation.Endpoints;
-using EventFlow.Events.Application;
+﻿using EventFlow.Common.Infrastructure.Interceptors;
+using EventFlow.Common.Presentation.Endpoints;
 using EventFlow.Events.Application.Abstractions.Data;
 using EventFlow.Events.Domain.Categories;
 using EventFlow.Events.Domain.Events;
@@ -31,14 +31,14 @@ public static class EventsModule
     {
         string databaseConnectionString = configuration.GetConnectionString("Database")!;
 
-        services.AddDbContext<EventsDbContext>(options =>
+        services.AddDbContext<EventsDbContext>((sp, options) =>
             options
                 .UseNpgsql(
                     databaseConnectionString,
                     npgsqlOptions => npgsqlOptions
                         .MigrationsHistoryTable(HistoryRepository.DefaultTableName, Schemas.Events))
                 .UseSnakeCaseNamingConvention()
-                .AddInterceptors());
+                .AddInterceptors(sp.GetRequiredService<PublishDomainEventsInterceptor>()));
 
         services.AddScoped<IUnitOfWork>(sp => sp.GetRequiredService<EventsDbContext>());
 

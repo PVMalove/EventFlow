@@ -26,6 +26,7 @@ services.AddSwaggerGen(options =>
 
 services.AddApplication([AssemblyReference.Assembly]);
 
+
 var dbConnectionString = builder.Configuration.GetConnectionString("Database")!;
 var cacheConnectionString = builder.Configuration.GetConnectionString("Cache")!;
 

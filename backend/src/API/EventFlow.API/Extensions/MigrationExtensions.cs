@@ -16,7 +16,8 @@ internal static class MigrationExtensions
         where TDbContext : DbContext
     {
         using TDbContext context = scope.ServiceProvider.GetRequiredService<TDbContext>();
-
+        Console.WriteLine($"Applying migrations for {typeof(TDbContext).Name}");
+        Console.WriteLine($"Database connection string: {context.Database.GetConnectionString()};");
         context.Database.Migrate();
     }
 }
