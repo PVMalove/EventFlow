@@ -1,4 +1,5 @@
 ﻿using EventFlow.Common.Presentation.Endpoints;
+using EventFlow.Ticketing.Application.Carts;
 using Microsoft.Extensions.Configuration;
 using Microsoft.Extensions.DependencyInjection;
 
@@ -17,6 +18,6 @@ public static class TicketingModule
 
     private static void AddInfrastructure(this IServiceCollection services, IConfiguration configuration)
     {
-
+        services.AddSingleton<CartService>();
     }
 }
