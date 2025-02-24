@@ -1,0 +1,18 @@
+﻿<Project Sdk="Microsoft.NET.Sdk">
+
+    <PropertyGroup>
+        <TargetFramework>net8.0</TargetFramework>
+        <ImplicitUsings>enable</ImplicitUsings>
+        <Nullable>enable</Nullable>
+    </PropertyGroup>
+
+    <ItemGroup>
+      <Compile Remove="Class1.cs" />
+    </ItemGroup>
+
+    <ItemGroup>
+      <ProjectReference Include="..\..\..\Common\EventFlow.Common.Presentation\EventFlow.Common.Presentation.csproj" />
+      <ProjectReference Include="..\EventFlow.Ticketing.Application\EventFlow.Ticketing.Application.csproj" />
+    </ItemGroup>
+
+</Project>
