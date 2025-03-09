@@ -1,4 +1,5 @@
 ﻿using EventFlow.Events.Infrastructure.DbContexts;
+using EventFlow.Ticketing.Infrastructure.Database;
 using EventFlow.Users.Infrastructure.Database;
 using Microsoft.EntityFrameworkCore;
 
@@ -12,6 +13,7 @@ internal static class MigrationExtensions
 
         ApplyMigration<EventsDbContext>(scope);
         ApplyMigration<UsersDbContext>(scope);
+        ApplyMigration<TicketingDbContext>(scope);
     }
 
     private static void ApplyMigration<TDbContext>(IServiceScope scope)
@@ -19,7 +21,6 @@ internal static class MigrationExtensions
     {
         using TDbContext context = scope.ServiceProvider.GetRequiredService<TDbContext>();
         Console.WriteLine($"Applying migrations for {typeof(TDbContext).Name}");
-        Console.WriteLine($"Database connection string: {context.Database.GetConnectionString()};");
         context.Database.Migrate();
     }
 }

@@ -3,7 +3,6 @@ using EventFlow.Common.Domain.Abstractions;
 using EventFlow.Events.Domain.TicketTypes;
 using EventFlow.Events.PublicApi;
 using EventFlow.Ticketing.Domain.Customers;
-using EventFlow.Users.PublicApi;
 
 
 namespace EventFlow.Ticketing.Application.Carts.AddItemToCart;

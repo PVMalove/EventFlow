@@ -3,9 +3,7 @@ using EventFlow.Common.Presentation.Endpoints;
 using EventFlow.Users.Application.Abstractions.Data;
 using EventFlow.Users.Domain.Users;
 using EventFlow.Users.Infrastructure.Database;
-using EventFlow.Users.Infrastructure.PublicApi;
 using EventFlow.Users.Infrastructure.Users;
-using EventFlow.Users.PublicApi;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.EntityFrameworkCore.Migrations;
 using Microsoft.Extensions.Configuration;
@@ -27,7 +25,7 @@ public static class UsersModule
     private static void AddInfrastructure(this IServiceCollection services, IConfiguration configuration)
     {
         string databaseConnectionString = configuration.GetConnectionString("Database")!;
-        
+
         services.AddDbContext<UsersDbContext>((sp, options) =>
             options
                 .UseNpgsql(
@@ -39,6 +37,5 @@ public static class UsersModule
 
         services.AddScoped<IUnitOfWork>(sp => sp.GetRequiredService<UsersDbContext>());
         services.AddScoped<IUserRepository, UserRepository>();
-        services.AddScoped<IUsersApi, UsersApi>();
     }
 }

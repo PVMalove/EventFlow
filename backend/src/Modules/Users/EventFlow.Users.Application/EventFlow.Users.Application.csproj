@@ -2,8 +2,8 @@
 
     <ItemGroup>
       <ProjectReference Include="..\..\..\Common\EventFlow.Common.Application\EventFlow.Common.Application.csproj" />
-      <ProjectReference Include="..\..\Ticketing\EventFlow.Ticketing.PublicApi\EventFlow.Ticketing.PublicApi.csproj" />
       <ProjectReference Include="..\EventFlow.Users.Domain\EventFlow.Users.Domain.csproj" />
+      <ProjectReference Include="..\EventFlow.Users.IntegrationEvents\EventFlow.Users.IntegrationEvents.csproj" />
     </ItemGroup>
 
 </Project>

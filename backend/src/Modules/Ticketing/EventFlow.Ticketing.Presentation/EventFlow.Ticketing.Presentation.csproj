@@ -15,4 +15,5 @@
       <ProjectReference Include="..\EventFlow.Ticketing.Application\EventFlow.Ticketing.Application.csproj" />
     </ItemGroup>
 
+
 </Project>

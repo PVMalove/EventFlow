@@ -14,27 +14,27 @@ using Serilog;
 var builder = WebApplication.CreateBuilder(args);
 var services = builder.Services;
 
-builder.Host.UseSerilog((context, configuration) => 
+builder.Host.UseSerilog((context, configuration) =>
     configuration.ReadFrom.Configuration(context.Configuration));
 
 services.AddExceptionHandler<GlobalExceptionHandler>();
 services.AddProblemDetails();
 
 services.AddEndpointsApiExplorer();
-services.AddSwaggerGen(options =>
-{
-    options.CustomSchemaIds(t => t.FullName?.Replace("+", "."));
-});
+services.AddSwaggerGen(options => { options.CustomSchemaIds(t => t.FullName?.Replace("+", ".")); });
 
 services.AddApplication([
     EventFlow.Events.Application.AssemblyReference.Assembly,
     EventFlow.Users.Application.AssemblyReference.Assembly,
-    EventFlow.Ticketing.Application.AssemblyReference.Assembly]);
+    EventFlow.Ticketing.Application.AssemblyReference.Assembly
+]);
 
 var dbConnectionString = builder.Configuration.GetConnectionString("Database")!;
 var cacheConnectionString = builder.Configuration.GetConnectionString("Cache")!;
 
-services.AddInfrastructure(dbConnectionString, cacheConnectionString);
+services.AddInfrastructure(
+    [TicketingModule.ConfigureConsumers],
+    dbConnectionString, cacheConnectionString);
 
 builder.Configuration.AddModuleConfiguration(["events", "users", "ticketing"]);
 
@@ -52,7 +52,7 @@ if (app.Environment.IsDevelopment())
 {
     app.UseSwagger();
     app.UseSwaggerUI();
-    
+
     app.ApplyMigrations();
 }
 

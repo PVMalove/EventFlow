@@ -6,7 +6,6 @@
       <ProjectReference Include="..\..\Users\EventFlow.Users.Application\EventFlow.Users.Application.csproj" />
         <ProjectReference Include="..\EventFlow.Ticketing.Domain\EventFlow.Ticketing.Domain.csproj" />
         <ProjectReference Include="..\..\Events\EventFlow.Events.PublicApi\EventFlow.Events.PublicApi.csproj" />
-        <ProjectReference Include="..\..\Users\EventFlow.Users.PublicApi\EventFlow.Users.PublicApi.csproj" />
     </ItemGroup>
 
 </Project>

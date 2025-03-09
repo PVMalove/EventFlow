@@ -4,7 +4,6 @@
         <ProjectReference Include="..\..\..\Common\EventFlow.Common.Infrastructure\EventFlow.Common.Infrastructure.csproj" />
         <ProjectReference Include="..\EventFlow.Users.Application\EventFlow.Users.Application.csproj" />
         <ProjectReference Include="..\EventFlow.Users.Presentation\EventFlow.Users.Presentation.csproj" />
-        <ProjectReference Include="..\EventFlow.Users.PublicApi\EventFlow.Users.PublicApi.csproj" />
     </ItemGroup>
     
 </Project>

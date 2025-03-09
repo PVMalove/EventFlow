@@ -5,8 +5,8 @@ using EventFlow.Ticketing.Application.Carts;
 using EventFlow.Ticketing.Domain.Customers;
 using EventFlow.Ticketing.Infrastructure.Customers;
 using EventFlow.Ticketing.Infrastructure.Database;
-using EventFlow.Ticketing.Infrastructure.PublicApi;
-using EventFlow.Ticketing.PublicApi;
+using EventFlow.Ticketing.Presentation.Customers;
+using MassTransit;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.EntityFrameworkCore.Migrations;
 using Microsoft.Extensions.Configuration;
@@ -25,10 +25,15 @@ public static class TicketingModule
         return services;
     }
 
+    public static void ConfigureConsumers(IRegistrationConfigurator registrationConfigurator)
+    {
+        registrationConfigurator.AddConsumer<UserRegisteredIntegrationEventConsumer>();
+    }
+
     private static void AddInfrastructure(this IServiceCollection services, IConfiguration configuration)
     {
         var databaseConnectionString = configuration.GetConnectionString("Database")!;
-        
+
         services.AddDbContext<TicketingDbContext>((sp, options) =>
             options
                 .UseNpgsql(
@@ -41,9 +46,7 @@ public static class TicketingModule
         services.AddScoped<ICustomerRepository, CustomerRepository>();
 
         services.AddScoped<IUnitOfWork>(sp => sp.GetRequiredService<TicketingDbContext>());
-        
-        services.AddSingleton<CartService>();
 
-        services.AddScoped<ITicketingApi, TicketingApi>();
+        services.AddSingleton<CartService>();
     }
 }

@@ -54,11 +54,9 @@ Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "EventFlow.Ticketing.Infrast
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "EventFlow.Ticketing.Presentation", "src\Modules\Ticketing\EventFlow.Ticketing.Presentation\EventFlow.Ticketing.Presentation.csproj", "{1C913B7E-1BF3-4ADD-A865-C35437259D34}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "EventFlow.Users.PublicApi", "src\Modules\Users\EventFlow.Users.PublicApi\EventFlow.Users.PublicApi.csproj", "{6901463D-7790-41A9-B057-690A9F033FCA}"
-EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "EventFlow.Events.PublicApi", "src\Modules\Events\EventFlow.Events.PublicApi\EventFlow.Events.PublicApi.csproj", "{D7C1C5BA-52F3-4735-B3E0-F1CBD1B8B913}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "EventFlow.Ticketing.PublicApi", "src\Modules\Ticketing\EventFlow.Ticketing.PublicApi\EventFlow.Ticketing.PublicApi.csproj", "{7200611F-83E4-450A-9290-5D3309717EEC}"
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "EventFlow.Users.IntegrationEvents", "src\Modules\Users\EventFlow.Users.IntegrationEvents\EventFlow.Users.IntegrationEvents.csproj", "{EECFD8EE-DE05-4C83-8DE2-31C7EB6B555F}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
@@ -89,9 +87,8 @@ Global
 		{3B2F9DCD-D8D2-4851-A09A-76A07052F238} = {2EF5D977-8027-4702-B2F1-213FCAB64AAF}
 		{2759338C-28C5-4FD2-8144-EE09B05202BC} = {2EF5D977-8027-4702-B2F1-213FCAB64AAF}
 		{1C913B7E-1BF3-4ADD-A865-C35437259D34} = {2EF5D977-8027-4702-B2F1-213FCAB64AAF}
-		{6901463D-7790-41A9-B057-690A9F033FCA} = {BB1337AE-59E0-4218-9125-EDBD4201EB17}
 		{D7C1C5BA-52F3-4735-B3E0-F1CBD1B8B913} = {0CC98C75-775F-4306-A3F8-4E56CE4ED562}
-		{7200611F-83E4-450A-9290-5D3309717EEC} = {2EF5D977-8027-4702-B2F1-213FCAB64AAF}
+		{EECFD8EE-DE05-4C83-8DE2-31C7EB6B555F} = {BB1337AE-59E0-4218-9125-EDBD4201EB17}
 	EndGlobalSection
 	GlobalSection(ProjectConfigurationPlatforms) = postSolution
 		{ED2CF2F4-BBBC-453E-B093-95ED0C776B00}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
@@ -162,17 +159,13 @@ Global
 		{1C913B7E-1BF3-4ADD-A865-C35437259D34}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{1C913B7E-1BF3-4ADD-A865-C35437259D34}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{1C913B7E-1BF3-4ADD-A865-C35437259D34}.Release|Any CPU.Build.0 = Release|Any CPU
-		{6901463D-7790-41A9-B057-690A9F033FCA}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
-		{6901463D-7790-41A9-B057-690A9F033FCA}.Debug|Any CPU.Build.0 = Debug|Any CPU
-		{6901463D-7790-41A9-B057-690A9F033FCA}.Release|Any CPU.ActiveCfg = Release|Any CPU
-		{6901463D-7790-41A9-B057-690A9F033FCA}.Release|Any CPU.Build.0 = Release|Any CPU
 		{D7C1C5BA-52F3-4735-B3E0-F1CBD1B8B913}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
 		{D7C1C5BA-52F3-4735-B3E0-F1CBD1B8B913}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{D7C1C5BA-52F3-4735-B3E0-F1CBD1B8B913}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{D7C1C5BA-52F3-4735-B3E0-F1CBD1B8B913}.Release|Any CPU.Build.0 = Release|Any CPU
-		{7200611F-83E4-450A-9290-5D3309717EEC}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
-		{7200611F-83E4-450A-9290-5D3309717EEC}.Debug|Any CPU.Build.0 = Debug|Any CPU
-		{7200611F-83E4-450A-9290-5D3309717EEC}.Release|Any CPU.ActiveCfg = Release|Any CPU
-		{7200611F-83E4-450A-9290-5D3309717EEC}.Release|Any CPU.Build.0 = Release|Any CPU
+		{EECFD8EE-DE05-4C83-8DE2-31C7EB6B555F}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{EECFD8EE-DE05-4C83-8DE2-31C7EB6B555F}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{EECFD8EE-DE05-4C83-8DE2-31C7EB6B555F}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{EECFD8EE-DE05-4C83-8DE2-31C7EB6B555F}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 EndGlobal
