@@ -10,7 +10,7 @@ public sealed class CartService(ICacheService cacheService)
     {
         string cacheKey = CreateCacheKey(customerId);
 
-        Cart cart = await cacheService.GetAsync<Cart>(cacheKey, cancellationToken) ??
+        var cart = await cacheService.GetAsync<Cart>(cacheKey, cancellationToken) ??
                     Cart.CreateDefault(customerId);
 
         return cart;
@@ -27,9 +27,9 @@ public sealed class CartService(ICacheService cacheService)
 
     public async Task AddItemAsync(Guid customerId, CartItem cartItem, CancellationToken cancellationToken = default)
     {
-        string cacheKey = CreateCacheKey(customerId);
+        var cacheKey = CreateCacheKey(customerId);
 
-        Cart cart = await GetAsync(customerId, cancellationToken);
+        var cart = await GetAsync(customerId, cancellationToken);
 
         CartItem? existingCartItem = cart.Items.Find(c => c.TicketTypeId == cartItem.TicketTypeId);
 
@@ -47,9 +47,9 @@ public sealed class CartService(ICacheService cacheService)
 
     public async Task RemoveItemAsync(Guid customerId, Guid ticketTypeId, CancellationToken cancellationToken = default)
     {
-        string cacheKey = CreateCacheKey(customerId);
+        var cacheKey = CreateCacheKey(customerId);
 
-        Cart cart = await GetAsync(customerId, cancellationToken);
+        var cart = await GetAsync(customerId, cancellationToken);
 
         CartItem? cartItem = cart.Items.Find(c => c.TicketTypeId == ticketTypeId);
 
