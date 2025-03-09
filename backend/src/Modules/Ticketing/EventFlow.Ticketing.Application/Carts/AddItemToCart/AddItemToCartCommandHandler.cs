@@ -1,8 +1,8 @@
 ﻿using EventFlow.Common.Application.Messaging;
 using EventFlow.Common.Domain.Abstractions;
-using EventFlow.Events.Domain.TicketTypes;
 using EventFlow.Events.PublicApi;
 using EventFlow.Ticketing.Domain.Customers;
+using EventFlow.Ticketing.Domain.Events;
 
 
 namespace EventFlow.Ticketing.Application.Carts.AddItemToCart;

@@ -1,10 +1,19 @@
 ﻿using EventFlow.Common.Infrastructure.Interceptors;
 using EventFlow.Common.Presentation.Endpoints;
 using EventFlow.Ticketing.Application.Abstractions.Data;
+using EventFlow.Ticketing.Application.Abstractions.Payments;
 using EventFlow.Ticketing.Application.Carts;
 using EventFlow.Ticketing.Domain.Customers;
+using EventFlow.Ticketing.Domain.Events;
+using EventFlow.Ticketing.Domain.Orders;
+using EventFlow.Ticketing.Domain.Payments;
+using EventFlow.Ticketing.Domain.Tickets;
 using EventFlow.Ticketing.Infrastructure.Customers;
 using EventFlow.Ticketing.Infrastructure.Database;
+using EventFlow.Ticketing.Infrastructure.Events;
+using EventFlow.Ticketing.Infrastructure.Orders;
+using EventFlow.Ticketing.Infrastructure.Payments;
+using EventFlow.Ticketing.Infrastructure.Tickets;
 using EventFlow.Ticketing.Presentation.Customers;
 using MassTransit;
 using Microsoft.EntityFrameworkCore;
@@ -44,9 +53,15 @@ public static class TicketingModule
                 .UseSnakeCaseNamingConvention());
 
         services.AddScoped<ICustomerRepository, CustomerRepository>();
+        services.AddScoped<IEventRepository, EventRepository>();
+        services.AddScoped<ITicketTypeRepository, TicketTypeRepository>();
+        services.AddScoped<IOrderRepository, OrderRepository>();
+        services.AddScoped<ITicketRepository, TicketRepository>();
+        services.AddScoped<IPaymentRepository, PaymentRepository>();
 
         services.AddScoped<IUnitOfWork>(sp => sp.GetRequiredService<TicketingDbContext>());
 
         services.AddSingleton<CartService>();
+        services.AddSingleton<IPaymentService, PaymentService>();
     }
 }
